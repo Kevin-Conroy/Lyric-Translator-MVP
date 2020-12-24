@@ -16,7 +16,6 @@ function getLyrics(artistName, songTitle) {
     })
     
 
-      //.catch(error => alert('Please choose a different song.'));
 
 }
 
@@ -39,10 +38,7 @@ function displayEnglishLyrics(englishLyrics) {
   $('#en-results').html(englishLyrics.split('\n').map(line => '<p>' + line + '</p>'));
 };
 
-/*function displayError(error) {
-  alert("Please choose a different language");
-}
-*/
+
 function translateText(language, lyrics) {
 
 //const targetLangage = $("#song-language").val();
@@ -81,22 +77,6 @@ return responseJson.data.translations.map(t => {
 
 }
 
-/*
-fetch(url)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      
-      }
-      console.log("Error");
-      throw new Error(response.statusText);
-    })
-    .then(responseJson => displayResults(responseJson))
-    .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    });
-
-*/
 
  function watchForm() {
   $('form').submit(async event => {
