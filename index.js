@@ -5,6 +5,9 @@ function getLyrics(artistName, songTitle) {
     .then(response => response.json())
     .then(responseJson => {
       console.log(responseJson.lyrics)
+      if (!responseJson || !responseJson.lyrics) {
+      throw new Error("NO_LYRICS");
+      }
       return responseJson.lyrics
       $('#en-results').emtpy();
       $('#en-results').html(responseJson.lyrics);
@@ -13,9 +16,15 @@ function getLyrics(artistName, songTitle) {
     })
     
 
-      .catch(error => alert('Please choose a different song.'));
+      //.catch(error => alert('Please choose a different song.'));
 
 }
+
+function displayError(error) {
+  if (error.message = "NO_LYRICS") {
+    alert("Sorry, try another song!")
+  }
+};
 
 
 function displayResults(translatedLyrics) {
@@ -30,10 +39,10 @@ function displayEnglishLyrics(englishLyrics) {
   $('#en-results').html(englishLyrics.split('\n').map(line => '<p>' + line + '</p>'));
 };
 
-function displayError(error) {
+/*function displayError(error) {
   alert("Please choose a different language");
 }
-
+*/
 function translateText(language, lyrics) {
 
 //const targetLangage = $("#song-language").val();
@@ -44,7 +53,7 @@ function translateText(language, lyrics) {
   return fetch("https://translation.googleapis.com/language/translate/v2", {
 	"method": "POST",
   headers: {
-  Authorization: `Bearer ya29.c.Kp0B6AcMcoWt_jT-iDqVJkiljq6msI6BKlCvSvw-hIwp6zUEhv7rhOaAjOB6wzLAQdVneDcdwkGiR12rdzDJCxEhl3XV2XUCf8ntmtDK9Gr-dM9q2tL5cbzY-bidZv2UaQgDUG2SKzPefB30cFprsRV2RUOXhEXSHwNLpaQ1_yAnMO08_Csi_VG0Ep0spmXNNp6bfu1uep2mDamZkMighA`,
+  Authorization: `Bearer ya29.c.Kp0B6AeJRYzN4jcvTe0lLmQp0fEkK-c_3mOqUT6_XtjGgM1qiYxH-WAdsyAVl-2oP_TUozgP-3eKy7KY9SxGrNRWth_hm9ePcz8RLc82j4-ghDsQjEl208sJmFPw9MvdQEdwZ6nQ0ikU7NkQoel89MzaXEnQCeYcrpFPV7c0cTSuHXUR98RYeahOkHquCoRQM3KKiKFmVriGT5G8slQQzQ`,
   "Content-Type": "application/json; charset=utf/8",
 },
 
@@ -65,10 +74,10 @@ return responseJson.data.translations.map(t => {
   return (t.translatedText);
 }) 
 
-})
-.catch(err => {
-	console.error(err);
 });
+//.catch(err => {
+//	console.error(err);
+//});
 
 }
 
