@@ -2,7 +2,11 @@
 
 <h2>A place to find out what your favorite artists have to say in languages from around the globe.</h2>
 
-<h3><a href="https://kevin-conroy.github.io/UniversaLyrics/">Try it out here!</a></h3>
+<h3><a href="https://kevin-conroy.github.io/UniversaLyrics/">Try it out yourself</a></h3>
+
+<h3><a href="https://github.com/Kevin-Conroy/UniversaLyrics">Check out the repo</a></h3>
+
+
 
 <img src="UniversaLyricsImg/ReadMeShotSmall.png" alt="App Screenshot">
 
