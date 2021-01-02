@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New finder</title>
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body style="background-color:black">
   <header>
     <div class="container">
-        <h1 class="w3-center w3-animate-top">Lyric Finder</h1>
+        <h1 class="w3-center w3-animate-top">UniversaLyrics</h1>
         <h2 class="w3-center w3-animate-left">Pick a song & I'll show it to you in a language of your choosing!</h2> 
         <form id="js-form" class="w3-animate-opacity">
-            <label for="search-term">Artist Name</label>
+            <label for="artist-name">Artist Name</label>
             <input type="text" name="artist-name" id="artist-name" required>
-            <label for="search-term">Song Title</label>
+            <label for="song-title">Song Title</label>
             <input type="text" name="song-title" id="song-title" required>
-            <label for="search-term">Language</label>
+            <label for="song-language">Language</label>
             <select id="song-language" class="langauge">
             <option value="es">Spanish</option>
             <option value="fr">French</option>
@@ -47,15 +47,21 @@
        </div> 
       </header>
       <div class="group">
-        <div id="error-message" class="err centered"></div>
-        <div class="item">  
-          
-         <div id="h2EngDiv" class="h2"></div>  
-        <section id="en-results" class="lyrics"></section>
+        <div id="error-message" class="err centered">
+      </div>
+        <div class="item">
+          <div id="EnglishOnlyButton">
+           <button type="button" id="eng-only">Show English Only</button>
+          </div>
+          <div id="h2EngDiv" class="h2"></div>
+           <section id="en-results" class="lyrics"></section>
         </div>
         <div class="item">
+          <div id="TransOnlyButton">
+           <button type="button" id="trans-only">Show Translation Only</button>
+          </div>
          <div id="h2TransDiv" class="h2"></div>
-        <section id="results" class="lyrics"></section>
+        <section id="tr-results" class="lyrics"></section>
         </div>
       </div>  
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
