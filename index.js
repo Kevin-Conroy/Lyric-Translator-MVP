@@ -67,7 +67,7 @@ function translateText(language, lyrics) {
     return fetch("https://translation.googleapis.com/language/translate/v2", {
             "method": "POST",
             headers: {
-                Authorization: `Bearer ya29.c.Kp0B7AfRYtJTHNYPso_jSM14Qv-UqT88j6XZTY_aAqIVAJimdbfSZSZiw0NMCsovDUzCzaS3QNZmCTiznyDN9DLBIEVf5scughk2Z6Z5NDob08IiHvI4SBq0thlczfDhtiSzRY2vycBi1LWh5WLA4m94rzcfQg5dqO0qLm6gN1lV5l1If02dvIej1RpeH-OhS5lw8VVPYSGpJeFIrJ4BOQ`,
+                Authorization: `Bearer ya29.c.Kp0B7AeViDOV5IT9WYCtjU_gsgIFYGzEgVFsO3gMTXDvraa7ueISyCHmg8rJB-E2Lega56Q8xUmVYVIN3DcvWPzHPlGICh3hX0bWsFcOi_A1ACXdmqbKepbCruNqM_yoxuB0MAaVbc5INQTtHAnjdjsxnAl7jcAdugNAkQgJJFjKwGw9AlU3FFEY1mR9SeGcFCaWb6N4C3tZetpWkydgeg`,
                 "Content-Type": "application/json; charset=utf/8",
               },
                 body: JSON.stringify({
