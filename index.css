@@ -5,12 +5,13 @@
 body {
   font-family: 'Courier New', Courier, monospace;
   font-style: bold;
-  font-color: white;
+  color: aliceblue;
   font-size: 16px;
 }
 
 button, input[type="text"] {
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -37,25 +38,25 @@ container {
 }
 
 header h1 {
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: aliceblue;
   font-size: 50px;
-  font-style: bold;
   text-align: center;
+  letter-spacing: 5px;
 }
 
 header h2 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
   font-style: bold;
-  color: white;
+  color: aliceblue;
 }
 
-.h2 {
+h3 {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 30px;
+  font-size: 50px;
   font-style: bold;
-  color: white;
+  color: aliceblue;
 }
 
 form {
@@ -66,7 +67,7 @@ form {
 }
 
 label {
-  color: white;
+  color: aliceblue;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding: 10px;
 }
@@ -95,14 +96,6 @@ header {
 
 }
 
-.lyric-box {
-  background-color: lightgrey;
-  width: 300px;
-  border: 15px solid green;
-  padding: 50px;
-  margin: 20px;
-}
-
 .centered {
   position: fixed;
   top: 50%;
@@ -114,5 +107,6 @@ header {
 .lyrics {
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
-  color: white;
+  color: aliceblue;
+  text-align: left;
 }
