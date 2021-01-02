@@ -15,31 +15,59 @@ function getLyrics(artistName, songTitle) {
 
 function displayError(error) {
     if (error.message = "NO_LYRICS") {
-        $('#results').empty();
+        $('TransOnlyButton').addClass('hidden');
+        $('EnglishOnlyButton').addClass('hidden');
+        $('#tr-results').empty();
         $('#en-results').empty();
-        $('#h2TransDiv').empty();
+        $('#transDiv').empty();
         $('#h2EngDiv').empty();
         $('#error-message').text("Sorry, try another song!");
+
     }
 };
 
 function displayTranslation(translatedLyrics) {
-  $('#h2TransDiv').text("Translation");
-  $('#results').empty();
-  $('#results').html(translatedLyrics.map(line => '<p>' + line + '</p>'))
+  $('#TransOnlyButton').removeClass('hidden');
+  $('#tr-results').removeClass('hidden');
+  $('#transDiv').text("Translation");
+  $('#error-message').empty();
+  $('#tr-results').empty();
+  $('#tr-results').html(translatedLyrics.map(line => '<p>' + line + '</p>'))
 };
 
 function displayEnglishLyrics(englishLyrics) {
-    $('#h2EngDiv').text("Lyrics (English)");
+    $('#EnglishOnlyButton').removeClass('hidden');
+    $('#en-results').removeClass('hidden');
+    $('#engDiv').text("Lyrics (English)");
+    $('#error-message').empty();
     $('#en-results').empty();
     $('#en-results').html(englishLyrics.split('\n').map(line => '<p>' + line + '</p>'));
 };
+
+$('#eng-only').click(displayEnglishOnly);
+$('#trans-only').click(displayTranslationOnly);
+
+function displayEnglishOnly(englishLyrics) {
+    $('#transDiv').addClass('hidden');
+    $('#engDiv').removeClass('hidden');
+    $('#error-message').empty();
+    $('#tr-results').addClass('hidden');
+    $('#en-results').removeClass('hidden');
+  };
+
+function displayTranslationOnly(translatedLyrics) {
+    $('#engDiv').addClass('hidden');
+    $('#transDiv').removeClass('hidden');
+    $('#error-message').empty();
+    $('#en-results').addClass('hidden');
+    $('#tr-results').removeClass('hidden');
+}  
 
 function translateText(language, lyrics) {
     return fetch("https://translation.googleapis.com/language/translate/v2", {
             "method": "POST",
             headers: {
-                Authorization: `Bearer ya29.c.Kp0B6wedgLCbvFKuEXNAx2kaC_G_rfedTa3H3A84OMCCRvVYfkGnpBB5PY3yUMeCHFHMhuGXKsbuRn2ZoiMviXi51Jhd4vc02skuSb6nMge4p4gFkurds9XJLqfwrOiGy624BT1EBVsYtOkXH1_YZMaTG6arOR5BpyOx5Am979MwwCUV8v6Xl7efOH1Dj-cmKaJreFT_uWmAvYKziDDrgg`,
+                Authorization: `Bearer ya29.c.Kp0B7AfRYtJTHNYPso_jSM14Qv-UqT88j6XZTY_aAqIVAJimdbfSZSZiw0NMCsovDUzCzaS3QNZmCTiznyDN9DLBIEVf5scughk2Z6Z5NDob08IiHvI4SBq0thlczfDhtiSzRY2vycBi1LWh5WLA4m94rzcfQg5dqO0qLm6gN1lV5l1If02dvIej1RpeH-OhS5lw8VVPYSGpJeFIrJ4BOQ`,
                 "Content-Type": "application/json; charset=utf/8",
               },
                 body: JSON.stringify({
@@ -74,3 +102,5 @@ function watchForm() {
 }
 
 $(watchForm);
+$('#EnglishOnlyButton').addClass('hidden');
+$('#TransOnlyButton').addClass('hidden');
