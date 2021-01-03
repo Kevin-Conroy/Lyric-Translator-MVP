@@ -1,6 +1,6 @@
 function getLyrics(artistName, songTitle) {
-    const formattedArtist = encodeURI(artistName);
-    const formattedSong = encodeURI(songTitle);
+    const formattedArtist = encodeURI(artistName.trim());
+    const formattedSong = encodeURI(songTitle.trim());
     return fetch(`https://private-amnesiac-c27613-lyricsovh.apiary-proxy.com/v1/${formattedArtist}/${formattedSong}`)
         .then(response => response.json())
         .then(responseJson => {
@@ -67,7 +67,7 @@ function translateText(language, lyrics) {
     return fetch("https://translation.googleapis.com/language/translate/v2", {
             "method": "POST",
             headers: {
-                Authorization: `Bearer ya29.c.Kp0B7AdTDbkU9JLQQv4QnhCDphJ1qmqW2xst8pRxHpqqKIe1QAvkyXBGZTEovILt1Y3LPfc9aXAms5zfyGGNLid2gN0ayEG3l0BfI_coikMzU2qNW6Yg359xLTS85FPKHzB5JFOey2ZKyz8s7qVckup9AcvUhqY_ZPKrlinUF0UQ6ubdpojhDvmq2egao9c1UfNEXjj6frTC3Ub1MQn2Jg`,
+                Authorization: `Bearer ya29.c.Kp0B7Aeh7N-ejWQ35zK8U9kH8XWPycpvuNNvoMnzxxPryI4jGwd9RswaLkQ-yfNw5_w0bGuISfxR5x_TKJmN8wr3xacYEXQaSjWG0gbt5KiQERxamvuqLMcmyTPSBP8E1gWqF_wGahl1J7QNBFx5-El2yvRX1ON9p1J6pE54fMgo4teoV5RaBRf_jPtJJ_W30MuX1P025tTxDrCpkE2bQQ`,
                 "Content-Type": "application/json; charset=utf/8",
               },
                 body: JSON.stringify({
